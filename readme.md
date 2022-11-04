@@ -16,7 +16,7 @@ The programs are adapted from the ROS2 tutorials to meet the course requirements
 ```
 source ~/ros2_humble/install/local_setup.bash  # Source your ROS2 Installation (Path may vary)
 cd <Your ROS2 workspace src folder>
-git clone https://github.com/Sanchitkedia/beginner_tutorials.git
+git clone -b ros_pub_sub https://github.com/Sanchitkedia/beginner_tutorials.git
 cd ..
 rosdep install -i --from-path src --rosdistro humble -y #Check for missing dependencies
 colcon build -packages-select beginner_tutorials
