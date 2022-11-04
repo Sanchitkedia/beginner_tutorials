@@ -19,7 +19,7 @@ cd <Your ROS2 workspace src folder>
 git clone -b ros_pub_sub https://github.com/Sanchitkedia/beginner_tutorials.git
 cd ..
 rosdep install -i --from-path src --rosdistro humble -y #Check for missing dependencies
-colcon build -packages-select beginner_tutorials
+colcon build --packages-select beginner_tutorials
 ```
 
 ## Run Package
