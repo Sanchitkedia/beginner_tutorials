@@ -5,6 +5,6 @@
         <param name ="Publisher_Frequency" value="$(var Publisher_Frequency)"/> // pass the value of the argument to the parameter
     </node>
 
-    <node pkg="beginner_tutorials" exec="listener" name="listener" output="screen" launch-prefix="terminator --execute --hold"/> // launch listener node in a new terminator window
+    <node pkg="beginner_tutorials" exec="listener" name="listener" output="screen" launch-prefix=" gnome-terminal -x"/> // launch listener node
 
 </launch>
