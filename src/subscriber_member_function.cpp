@@ -1,8 +1,31 @@
+/******************************************************************************
+  *MIT License
+
+  *Copyright (c) 2022 Sanchit Kedia
+
+  *Permission is hereby granted, free of charge, to any person obtaining a copy
+  *of this software and associated documentation files (the "Software"), to deal
+  *in the Software without restriction, including without limitation the rights
+  *to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  *copies of the Software, and to permit persons to whom the Software is
+  *furnished to do so, subject to the following conditions:
+
+  *The above copyright notice and this permission notice shall be included in all
+  *copies or substantial portions of the Software.
+
+  *THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  *IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  *FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  *AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  *LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  *OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  *SOFTWARE.
+  ******************************************************************************/
 /**
  * @file subscriber_member_function.cpp
- * @author your name (you@domain.com)
- * @brief
- * @version 0.1
+ * @author Sanchit Kedia (sanchit@terpmail.umd.edu)
+ * @brief ROS subscriber node implementation
+ * @version 0.12
  * @date 2022-11-05
  *
  * @copyright MIT Copyright (c) 2022
@@ -45,8 +68,8 @@ class MinimalSubscriber : public rclcpp::Node {
  * @brief Main function for the node minimal_subscriber that initializes the
  * node and spins it
  *
- * @param argc  Number of arguments
- * @param argv  Arguments
+ * @param argc  Number of arguments  (Argument Count)
+ * @param argv  Arguments (Argument vector)
  * @return int  Returns 0 on successful execution
  */
 int main(int argc, char *argv[]) {

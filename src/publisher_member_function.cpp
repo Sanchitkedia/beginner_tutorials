@@ -1,9 +1,32 @@
+/******************************************************************************
+  *MIT License
+
+  *Copyright (c) 2022 Sanchit Kedia
+
+  *Permission is hereby granted, free of charge, to any person obtaining a copy
+  *of this software and associated documentation files (the "Software"), to deal
+  *in the Software without restriction, including without limitation the rights
+  *to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  *copies of the Software, and to permit persons to whom the Software is
+  *furnished to do so, subject to the following conditions:
+
+  *The above copyright notice and this permission notice shall be included in all
+  *copies or substantial portions of the Software.
+
+  *THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  *IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  *FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  *AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  *LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  *OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  *SOFTWARE.
+  ******************************************************************************/
 /**
  * @file publisher_member_function.cpp
- * @author your name (you@domain.com)
- * @brief
- * @version 0.1
- * @date 2022-11-05
+ * @author Sanchit Kedia (sanchit@terpmail.umd.edu)
+ * @brief ROS publisher node implementation with service to change the published message and parameter to change the publishing rate
+ * @version 0.2
+ * @date 2022-11-06
  *
  * @copyright MIT Copyright (c) 2022
  *
@@ -63,7 +86,7 @@ class MinimalPublisher : public rclcpp::Node {
                    .get_parameter_value()
                    .get<double>() ==
                0.0) {  // If the frequency is zero, set it to the default value
-      RCLCPP_ERROR_STREAM(this->get_logger(),
+      RCLCPP_FATAL_STREAM(this->get_logger(),
                           "Frequency cant be zero" << std::endl);
       RCLCPP_WARN_STREAM(this->get_logger(),
                          "Talker frequency set to default value of 1.0Hz"
@@ -126,12 +149,12 @@ class MinimalPublisher : public rclcpp::Node {
     } else {  // If the input is not empty or reset,
              // set the message to the input
       msg = request->input;
-      RCLCPP_INFO_STREAM(this->get_logger(), "New string received" << msg);
+      RCLCPP_INFO_STREAM(this->get_logger(), "New string received");
       response->output = msg;
       RCLCPP_INFO_STREAM(this->get_logger(),
-                         "Incoming request\nThe New String is: %s"
+                         "Incoming request\nThe New String is: "
                              << msg.c_str() << std::endl);
-      RCLCPP_INFO_STREAM(this->get_logger(), "Sending response to talker: %s"
+      RCLCPP_INFO_STREAM(this->get_logger(), "Sending response to talker: "
                                                  << msg.c_str() << std::endl);
     }
   }

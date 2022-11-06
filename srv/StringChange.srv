@@ -1,4 +1,3 @@
-// Interface for the service that changes the string passed to the talker
 string input
 ---
 string output
