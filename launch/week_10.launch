@@ -1,0 +1,10 @@
+<launch>
+    <arg name="Publisher_Frequency" default="1.0"/> // default value of 1.0 Hz
+
+    <node pkg="beginner_tutorials" exec="talker" name="talker" output="screen"> // launch talker node
+        <param name ="Publisher_Frequency" value="$(var Publisher_Frequency)"/> // pass the value of the argument to the parameter
+    </node>
+
+    <node pkg="beginner_tutorials" exec="listener" name="listener" output="screen" launch-prefix="terminator --execute --hold"/> // launch listener node in a new terminator window
+
+</launch>
