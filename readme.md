@@ -11,6 +11,7 @@ The programs are adapted from the ROS2 tutorials to meet the course requirements
 # Dependencies
 - ROS2 (Humble Hawksbill Source Build)
 - Ubuntu 20.04 LTS
+- Terminator (Linux terminal emulator)
 
 # Build Package
 ```
@@ -19,11 +20,11 @@ cd <Your ROS2 workspace src folder>
 git clone https://github.com/Sanchitkedia/beginner_tutorials.git
 cd ..
 rosdep install -i --from-path src --rosdistro humble -y #Check for missing dependencies
-colcon build -packages-select beginner_tutorials
+colcon build --packages-select beginner_tutorials
 ```
 
 ## Run Package
-### [1] In a new terminal (Launch Talker Node)
+### [1] In a new terminal (Launch Talker Node with server to modify the published string)
 ```
 cd <Your ROS2 workspace>
 source ~/ros2_humble/install/local_setup.bash  # Source your ROS2 Installation (Path may vary)
@@ -36,6 +37,22 @@ cd <Your ROS2 workspace>
 source ~/ros2_humble/install/local_setup.bash  # Source your ROS2 Installation (Path may vary)
 source . install/setup.bash #Source the setup files
 ros2 run beginner_tutorials listener
+```
+
+### [3] In a another terminal (Launch Call Service)
+```
+cd <Your ROS2 workspace>
+source ~/ros2_humble/install/local_setup.bash  # Source your ROS2 Installation (Path may vary)
+source . install/setup.bash #Source the setup files
+ros2 service call /string_change beginner_tutorials/srv/StringChange "{input: '<The String You Want to Publish>'}"
+```
+
+### [4] Launch all nodes with arguments using launch file
+```
+cd <Your ROS2 workspace>
+source ~/ros2_humble/install/local_setup.bash  # Source your ROS2 Installation (Path may vary)
+source . install/setup.bash #Source the setup files
+ros2 launch beginner_tutorials week_10.launch Publisher_Frequency:=0.5 # Launch file launches listener node in a seperate terminator window (Need terminator to be installed)
 ```
 
 ## Cpplint
