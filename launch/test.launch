@@ -1,0 +1,4 @@
+<launch>
+    <node pkg="beginner_tutorials" exec="talker" name="talker" output="screen"  /> // Launches the talker node
+    <node pkg="beginner_tutorials" exec="beginner_tutorials_test" name="beginner_tutorials_test" output="screen" /> // Launches the test node
+</launch>
