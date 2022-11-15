@@ -1,10 +1,14 @@
 <launch>
     <arg name="Publisher_Frequency" default="1.0"/> // default value of 1.0 Hz
+    <arg name="record" default="false"/> // record rosbag
+    <arg name="bag_name" default="pub_sub_bagfile"/> // default name of bagfile
 
     <node pkg="beginner_tutorials" exec="talker" name="talker" output="screen"> // launch talker node
         <param name ="Publisher_Frequency" value="$(var Publisher_Frequency)"/> // pass the value of the argument to the parameter
     </node>
 
     <node pkg="beginner_tutorials" exec="listener" name="listener" output="screen" launch-prefix=" gnome-terminal -x"/> // launch listener node
+
+    <executable cmd="ros2 bag record -a --output src/beginner_tutorials/bagfiles/$(var bag_name)" if="$(var record)"/> // record rosbag
 
 </launch>
