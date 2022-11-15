@@ -24,14 +24,13 @@
 /**
  * @file publisher_member_function.cpp
  * @author Sanchit Kedia (sanchit@terpmail.umd.edu)
- * @brief ROS publisher node implementation with service to change the published message and parameter to change the publishing rate
- * @version 0.2
- * @date 2022-11-06
+ * @brief ROS publisher node implementation with service to change the published message and parameter to change the publishing rate. The program also broadcasts a tf frame called "talk" with parent "world".
+ * @version 0.3
+ * @date 2022-11-15
  *
  * @copyright MIT Copyright (c) 2022
  *
  */
-
 #include <beginner_tutorials/srv/string_change.hpp>
 #include <rclcpp/rclcpp.hpp>
 #include <std_msgs/msg/string.hpp>
@@ -98,16 +97,16 @@ class MinimalPublisher : public rclcpp::Node {
       talker_freq = 1.0;
     }
 
-    tf_broadcaster_ = std::make_shared<tf2_ros::TransformBroadcaster>(this);
+    tf_broadcaster_ = std::make_shared<tf2_ros::TransformBroadcaster>(this); // Create a tf broadcaster
     timer1_ = this->create_wall_timer(
-      100ms, std::bind(&MinimalPublisher::broadcast_timer_callback, this));
+      100ms, std::bind(&MinimalPublisher::broadcast_timer_callback, this)); // Create a timer to broadcast the tf frame
     timer_ = this->create_wall_timer(
-        std::chrono::duration<double>(talker_freq),
-        std::bind(&MinimalPublisher::timer_callback, this));
+        std::chrono::duration<double>(talker_freq), 
+        std::bind(&MinimalPublisher::timer_callback, this)); // Create a timer to publish the message
     server_ = this->create_service<beginner_tutorials::srv::StringChange>(
         "string_change",
         std::bind(&MinimalPublisher::string_change_callback, this,
-                  std::placeholders::_1, std::placeholders::_2));
+                  std::placeholders::_1, std::placeholders::_2)); // Create a service to change the message
   }
 
  private:
@@ -122,6 +121,10 @@ class MinimalPublisher : public rclcpp::Node {
     RCLCPP_INFO(this->get_logger(), "Publishing: '%s'", message.data.c_str());
     publisher_->publish(message);
   }
+  /**
+   * @brief Callback function for the timer which will loop the broadcaster and broadcast the tf frame
+   * 
+   */
   void broadcast_timer_callback() {
     geometry_msgs::msg::TransformStamped t;
 
