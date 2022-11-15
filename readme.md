@@ -6,8 +6,11 @@ This repository contains the ROS2 tutorial implementation for Humble Hawksbill.
 The programs are adapted from the ROS2 tutorials to meet the course requirements ENPM808X - Software Development for Robotics.
 The repository has mutiple branches for each assignment from the course ENPM808X.
 The main branch contains the the latest version of the code which has been merged from all the other branches.
+
 [1] [ROS2 Publisher and Subscriber](https://umd.instructure.com/courses/1336069/assignments/6179366) (branch - ros_pub_sub)
+
 [2] [ROS2 Services,Logging and Launch](https://umd.instructure.com/courses/1336069/assignments/6182236) (branch - WEEK10_HW)
+
 [3] [ROS2 tf2, unit testing and bag files](https://umd.instructure.com/courses/1336069/assignments/6188169) (branch - WEEK11_HW)
 
 ## Personnel
