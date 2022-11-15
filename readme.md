@@ -24,7 +24,7 @@ The main branch contains the the latest version of the code which has been merge
 ```
 source ~/ros2_humble/install/local_setup.bash  # Source your ROS2 Installation (Path may vary)
 cd <Your ROS2 workspace src folder>
-git clone -b Week10_HW https://github.com/Sanchitkedia/beginner_tutorials.git
+git clone -b Week11_HW https://github.com/Sanchitkedia/beginner_tutorials.git
 cd ..
 rosdep install -i --from-path src --rosdistro humble -y #Check for missing dependencies
 colcon build --packages-select beginner_tutorials
